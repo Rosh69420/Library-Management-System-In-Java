@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class Book{
-    Scanner sc = new Scanner(System.in);
+
     String title;
     String author;
     int id;
@@ -96,6 +96,15 @@ public class Main {
             switch(choice){
                 case 1:
                     addBook(sc);  // call your method
+                    break;
+                case 2:
+                    viewBooks();
+                    break;
+                case 3:
+                    addUser(sc);
+                    break;
+                case 4:
+                    viewUser();
                     break;
                 case 7:
                     System.out.println("Exiting...");
