@@ -32,6 +32,44 @@ public class Main {
 
     }
 
+    public static void viewBooks(){
+
+        if(bookCount == 0){
+            System.out.println("No Books Added Yet.");
+        }
+        else {
+            for (int i = 0; i < bookCount; i++) {
+                System.out.println("ID: " + books[i].id);
+                System.out.println("Title: " + books[i].title);
+                System.out.println("Author: " + books[i].author);
+                System.out.println("Is Issued: " + (books[i].isIssued ? "yes":"No"));
+                System.out.println("----------------------------------------------------");
+            }
+        }
+    }
+
+    public static void addUser(Scanner sc){
+        User u = new User();
+        System.out.print("Enter your full name: ");
+        u.userName = sc.nextLine();
+        u.userID = userCount + 1;
+        users[userCount] = u;
+        userCount++;
+        System.out.println("User added successfully/");
+    }
+    public static void viewUser(){
+        if(userCount == 0){
+            System.out.println("No users added yet.");
+        }
+        else{
+            for (int i = 0; i < userCount; i++){
+                System.out.println("User Name: " + users[i].userName);
+                System.out.println("User ID: " + users[i].userID);
+                System.out.println("-------------------------------------");
+            }
+        }
+    }
+
     static Book[] books = new Book[100];
     static int bookCount = 0;
 
