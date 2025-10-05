@@ -70,6 +70,54 @@ public class Main {
         }
     }
 
+    public static void issueBook(Scanner sc){
+        boolean uidFound = false;
+        boolean bidFound = false;
+        System.out.print("Enter the user ID: ");
+        int uid = sc.nextInt();
+        for(int i = 0; i < userCount; i++){
+
+            if(uid == users[i].userID) {
+                uidFound = true;
+                break;
+            }
+        }
+
+        if(!uidFound){
+            System.out.println("User ID not found try again!!");
+            System.out.println("---------------------------------");
+        }
+
+        else {
+            System.out.print("Enter the book ID: ");
+            int bid = sc.nextInt();
+            sc.nextLine();
+            for(int i = 0; i < bookCount; i++){
+                if(bid == books[i].id){
+                    bidFound = true;
+                    break;
+                }
+            }
+            if(!bidFound){
+                System.out.println("Book ID not found try again!!");
+                System.out.println("-------------------------------");
+            }
+            else {
+                if(!books[bid-1].isIssued){
+                    System.out.println("The book was successfully issued.");
+                    System.out.println("---------------------------------");
+                    books[bid-1].isIssued = true;
+                }
+                else{
+                    System.out.println("Book Already Issued!!");
+                    System.out.println("------------------------");
+                }
+            }
+        }
+
+
+    }
+
     static Book[] books = new Book[100];
     static int bookCount = 0;
 
@@ -105,6 +153,9 @@ public class Main {
                     break;
                 case 4:
                     viewUser();
+                    break;
+                case 5:
+                    issueBook(sc);
                     break;
                 case 7:
                     System.out.println("Exiting...");
