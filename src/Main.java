@@ -55,7 +55,7 @@ public class Main {
         u.userID = userCount + 1;
         users[userCount] = u;
         userCount++;
-        System.out.println("User added successfully/");
+        System.out.println("User added successfully");
     }
     public static void viewUser(){
         if(userCount == 0){
@@ -116,7 +116,24 @@ public class Main {
         }
 
 
+        }
+    public static void returnBook(Scanner sc){
+        System.out.print("Enter the book ID: ");
+        int bid = sc.nextInt();
+        boolean idCheck = false;
+        for (int i =0; i<bookCount; i++) {
+            if (bid ==  books[i].id){
+                idCheck = true;
+                books[i].isIssued = false;
+                System.out.println("Book returned ID No." + bid);
+                break;
+            }
+        }
+        if(!idCheck){
+            System.out.println("No book ID found, Try again!!");
+        }
     }
+
 
     static Book[] books = new Book[100];
     static int bookCount = 0;
@@ -156,6 +173,9 @@ public class Main {
                     break;
                 case 5:
                     issueBook(sc);
+                    break;
+                case 6:
+                    returnBook(sc);
                     break;
                 case 7:
                     System.out.println("Exiting...");
